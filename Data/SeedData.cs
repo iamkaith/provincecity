@@ -1,36 +1,37 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using Lab3.Models;
+using ProvinceCity.Models;
 
 public static class SeedData {
     // this is an extension method to the ModelBuilder class
+    
     public static void Seed(this ModelBuilder modelBuilder) {
-        modelBuilder.Entity<Lab3.Models.City>().HasData(
+        modelBuilder.Entity<City>().HasData(
             GetCities()
         );
-        modelBuilder.Entity<Lab3.Models.Province>().HasData(
+        modelBuilder.Entity<Province>().HasData(
             GetProvinces()
         );  
     }
-    public static List<Lab3.Models.Province> GetProvinces() {
-        List<Lab3.Models.Province> provinces = new List<Lab3.Models.Province>() {
-            new Lab3.Models.Province() {    // 1
+    public static List<Province> GetProvinces() {
+        List<Province> provinces = new List<Province>() {
+            new Province() {    // 1
                 ProvinceCode="BC",
                 ProvinceName="British Columbia",
             },
-            new Lab3.Models.Province() {    //2
+            new Province() {    //2
                 ProvinceCode="AB",
                 ProvinceName="Alberta",
             },
-            new Lab3.Models.Province() {    // 3
+            new Province() {    // 3
                 ProvinceCode="SA",
                 ProvinceName="Saskachewan",
             },
-            new Lab3.Models.Province() {    // 4
+            new Province() {    // 4
                 ProvinceCode="ON",
                 ProvinceName="Ontario",
             },
-            new Lab3.Models.Province() {    // 5
+            new Province() {    // 5
                 ProvinceCode="NV",
                 ProvinceName="Nova Scotia",
             },            

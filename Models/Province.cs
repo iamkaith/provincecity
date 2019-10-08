@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Lab3.Models {
+namespace ProvinceCity.Models {
     public class Province {
         
         public Province () {
