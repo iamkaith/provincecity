@@ -24,6 +24,11 @@ namespace ProvinceCity.Data
             builder.Entity<Province>().ToTable("Province");
             builder.Entity<City>().ToTable("City");
 
+            builder.Entity<City>()
+                .HasOne<Province>(p => p.Province)
+                .WithMany(c => c.Cities)
+                .HasForeignKey(k => k.ProvinceCode);
+
             builder.Seed();
         }
 

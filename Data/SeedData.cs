@@ -12,12 +12,6 @@ public static class SeedData {
         modelBuilder.Entity<Province>().HasData(
             GetProvinces()
         ); 
-
-        modelBuilder.Entity<City>()
-            .HasOne<Province>(p => p.Province)
-            .WithMany(c => c.Cities)
-            .HasForeignKey(k => k.CityID);
-
     }
     public static List<Province> GetProvinces() {
         List<Province> provinces = new List<Province>() {
