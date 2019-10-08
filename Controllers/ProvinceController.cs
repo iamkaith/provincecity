@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using ProvinceCity.Models;
 
 namespace ProvinceCity.Controllers
 {
+    [Authorize]
     public class ProvinceController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,12 +21,14 @@ namespace ProvinceCity.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Province
         public async Task<IActionResult> Index()
         {
             return View(await _context.Provinces.ToListAsync());
         }
 
+        [AllowAnonymous]
         // GET: Province/Details/5
         public async Task<IActionResult> Details(string id)
         {
