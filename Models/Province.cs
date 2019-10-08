@@ -1,16 +1,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProvinceCity.Models {
     public class Province {
         
-        public Province () {
-            this.Cities = new HashSet<City>(); 
-        }
+        public Province () {}
 
-        [Key]
-        [Required]
-        [MaxLength(2)]
+        [Key, Required, MaxLength(2)]
         public string ProvinceCode { get; set; }
         [Required]
         public string ProvinceName { get; set; }

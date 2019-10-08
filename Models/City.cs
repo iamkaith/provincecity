@@ -12,11 +12,9 @@ namespace ProvinceCity.Models {
         public string CityName { get; set; }
         public int Population { get; set; }
 
-        
         [Required]
         public string ProvinceCode { get; set; }
-
-        [ForeignKey("ProvinceCode")]        
+      
         public virtual Province Province { get; set; }
     }
 }
