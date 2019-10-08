@@ -21,14 +21,15 @@ namespace ProvinceCity.Controllers
             _context = context;
         }
 
+
         [AllowAnonymous]
         // GET: Province
-        public async Task<IActionResult> Index()    
+        public async Task<IActionResult> Index()
         {
+            PopulateCities();
             return View(await _context.Provinces.ToListAsync());
         }
 
-        [AllowAnonymous]
         // GET: Province/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -44,7 +45,39 @@ namespace ProvinceCity.Controllers
                 return NotFound();
             }
 
+            PopulateACity(province);
             return View(province);
+        }
+
+
+        // GET: Populate a list of Cities for each Province 
+        // Used in GET: Province
+        private void PopulateCities() {
+            foreach(var province in _context.Provinces) {
+                string code = province.ProvinceCode;
+
+                var query = _context.Cities
+                    .Where(c => c.ProvinceCode == code)
+                    .Select(c => new City {
+                        CityID = c.CityID,
+                        CityName = c.CityName
+                    });
+
+                province.Cities = query.ToList();
+            }
+        }
+
+        // GET: Populate list of Cities for a particular Province
+        // Used in GET: Province/Details/id
+        private void PopulateACity(Province province) {
+            var query = _context.Cities
+                .Where(c => c.ProvinceCode == province.ProvinceCode)
+                .Select(c => new City {
+                    CityID = c.CityID,
+                    CityName = c.CityName
+                });
+            
+            province.Cities = query.ToList();
         }
 
         // GET: Province/Create

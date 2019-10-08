@@ -10,11 +10,17 @@ namespace ProvinceCity.Models {
         public int CityID { get; set; }
         [Required]
         public string CityName { get; set; }
+
+        [DisplayFormat(DataFormatString="")]
         public int Population { get; set; }
 
         [Required]
         public string ProvinceCode { get; set; }
       
         public virtual Province Province { get; set; }
+
+        public override string ToString() {
+            return this.CityName + ", ";
+        }
     }
 }
