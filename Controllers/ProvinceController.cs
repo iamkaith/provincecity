@@ -23,7 +23,7 @@ namespace ProvinceCity.Controllers
 
         [AllowAnonymous]
         // GET: Province
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()    
         {
             return View(await _context.Provinces.ToListAsync());
         }
