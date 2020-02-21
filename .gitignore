@@ -37,4 +37,8 @@ msbuild.wrn
 .vs/
 
 # Web Deploy Information
-Properties/
+Properties
+
+# Local DB
+ProvinceCityDB.mdf
+ProvinceCityDB_log.ldf
