@@ -30,6 +30,7 @@ namespace ProvinceCity.Controllers
             return View(await _context.Provinces.ToListAsync());
         }
 
+        [AllowAnonymous]
         // GET: Province/Details/5
         public async Task<IActionResult> Details(string id)
         {
