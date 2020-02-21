@@ -18,9 +18,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ProvinceCode)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cities)
-            </th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -32,9 +29,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProvinceCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cities)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProvinceCode">Edit</a> |
