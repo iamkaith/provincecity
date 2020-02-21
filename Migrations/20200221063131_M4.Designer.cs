@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProvinceCity.Data;
 
-namespace ProvinceCity.Data.Migrations.M3
+namespace ProvinceCity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191008212539_M3")]
-    partial class M3
+    [Migration("20200221063131_M4")]
+    partial class M4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
